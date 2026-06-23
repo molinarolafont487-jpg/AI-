@@ -47,3 +47,7 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# Project archives (redundant copies of the project itself)
+*.zip
+*.tar.gz
