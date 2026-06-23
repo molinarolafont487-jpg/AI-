@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "dacheng-ai-academy",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://daadg.com",
+    "NEXT_PUBLIC_SITE_NAME": "大成智改AI商学院",
+    "NEXT_PUBLIC_PHONE": "18188761820",
+    "NEXT_PUBLIC_ADDRESS": "深圳市龙华区景龙建设路青年创业园健行楼C座307室",
+    "NEXT_PUBLIC_WORK_TIME": "周一至周六 09:00-18:00"
+  }
+}

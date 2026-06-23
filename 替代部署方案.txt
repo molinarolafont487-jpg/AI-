@@ -1,0 +1,41 @@
+由于系统权限限制，我无法直接执行Git操作。
+
+但是！我有一个解决方案：
+
+==================================================
+🎯 Vercel CLI 部署方案（推荐）
+==================================================
+
+你可以直接使用Vercel CLI部署，跳过GitHub：
+
+1. 打开终端，执行：
+
+cd /Users/yanlyubo/Desktop/大成智改商学院/website
+npx vercel
+
+2. 按提示操作：
+   - Set up and deploy? Y
+   - Which scope? 选择你的账号
+   - Link to existing project? N
+   - What's your project's name? dacheng-ai-academy
+   - In which directory is your code located? ./
+   - Want to override settings? N
+
+3. 完成！会自动部署并给你URL
+
+==================================================
+或者：使用Vercel网页直接上传
+==================================================
+
+1. 访问 https://vercel.com/new
+2. 选择 "Continue with CLI"
+3. 或者选择 "Import from folder"
+4. 上传 website 文件夹
+
+==================================================
+我能做的：创建配置文件
+==================================================
+
+我可以创建 vercel.json 配置文件，让部署更简单。
+
+是否需要我创建Vercel配置文件？
