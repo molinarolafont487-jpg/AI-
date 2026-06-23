@@ -1,13 +1,14 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { ButtonHTMLAttributes, cloneElement, forwardRef, isValidElement, ReactElement } from 'react'
 import { cn } from '@/lib/utils'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
+  asChild?: boolean
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', asChild = false, children, ...props }, ref) => {
     const variants = {
       primary: 'bg-primary text-white hover:bg-primary-light transition-colors',
       secondary: 'bg-accent-orange text-white hover:bg-accent-orange/90 transition-colors',
@@ -21,17 +22,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       lg: 'px-8 py-4 text-lg',
     }
 
+    const classes = cn(
+      'rounded-lg font-semibold inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed',
+      variants[variant],
+      sizes[size],
+      className
+    )
+
+    if (asChild && isValidElement(children)) {
+      const child = children as ReactElement<{ className?: string }>
+      return cloneElement(child, {
+        ...props,
+        className: cn(classes, child.props.className),
+      })
+    }
+
     return (
-      <button
-        className={cn(
-          'rounded-lg font-semibold inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed',
-          variants[variant],
-          sizes[size],
-          className
-        )}
-        ref={ref}
-        {...props}
-      >
+      <button className={classes} ref={ref} {...props}>
         {children}
       </button>
     )

@@ -1,18 +1,6 @@
 {
-  "version": 2,
-  "name": "dacheng-ai-academy",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://daadg.com",
     "NEXT_PUBLIC_SITE_NAME": "大成智改AI商学院",
